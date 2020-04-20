@@ -1,0 +1,126 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700;900&display=swap');
+body {
+  margin: 0;
+  font-size: 62.5%;
+  font-family: 'Orbitron', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
+}
+
+header {
+  display: grid;
+  grid-template-columns: 1fr 6fr 1fr;
+  height: 10vh;
+  background:#222629;
+}
+
+.logo {
+  margin: 1.3rem 0 0 1.3rem;
+  width: 3.8rem;
+  height: 3.8rem;
+}
+
+a{
+  text-decoration-line: none;
+}
+
+.navText {
+  margin:0 1.5rem 1rem 0;
+  font-size: 1.6rem;
+  transition: all 0.6s ease-in-out;
+  color: #f7fbdf;
+}
+
+.navText:hover{
+  transform: scale(1.15);
+  cursor: pointer;
+  color: #61892f;
+}
+
+.navBar{
+  display: flex;
+  justify-self: flex-end;
+  align-self: flex-end;
+}
+
+
+.filedList{
+  height: 90vh;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  background:linear-gradient(to bottom, #222629,35%, #222629c9);
+}
+
+.divCapsula{
+  display: grid;
+  grid-template-rows: 3fr 1.6fr;
+  background: linear-gradient(to right bottom,#689ff7,#0f3b81 );
+  border-radius: 1.2rem;
+  box-shadow: 0.2rem 0.2rem 0.3rem black;
+  margin: 1.85rem;
+}
+
+.firstCardpart{
+  display:grid;
+  grid-template-columns: 2fr 1fr;
+  align-items: center;
+  justify-items: center;
+}
+
+
+.toggleBtnDiv{
+  background:linear-gradient(to right,#ffffff,#b3b7bb);
+  border-bottom-left-radius: 1.2rem;
+  border-bottom-right-radius: 1.2rem;
+  clip-path: polygon(0 0,100% 18%,100% 100%, 0 100%);
+}
+
+.toggleBtnDiv{
+  display: grid;
+  align-items: center;
+  justify-items: center;
+}
+
+.cardName{
+  font-family: 'Cinzel Decorative', cursive;
+  font-weight: 600;
+  font-size: 3.5rem;
+  color:#f7fbdf ;
+  text-shadow: 0.1rem 0.1rem 0.25rem black ;
+}
+
+.cardValue{
+  font-size: 1.3rem;
+  color:#f7fbdf ;
+  transition: all 1s ease-in-out;
+}
+
+.cardValue:hover{
+ transform: scale(1.5);
+  cursor: pointer;
+}
+
+.switch{
+  transition: all 2s ease-in-out;
+  cursor: pointer;
+}
+
+.threePartDiv{
+  display: grid;
+  grid-template-rows: 1fr 1fr 1fr;
+  align-items: center;
+  justify-items: center;
+}
+
+.chartDiv{
+  display: grid;
+  align-items: center;
+  justify-items: center;
+  background:linear-gradient(to bottom, #222629,35%, #222629c9);
+  height: 90vh;
+}
