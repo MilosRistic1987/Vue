@@ -124,3 +124,7 @@ a{
   background:linear-gradient(to bottom, #222629,35%, #222629c9);
   height: 90vh;
 }
+
+.arrow{
+  height: 2.3rem;
+}

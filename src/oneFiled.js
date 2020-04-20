@@ -23,12 +23,14 @@ const OneFiled = ({ filed, setStatistics, statistics }) => {
     useEffect(() => {
         if (toggle) {
             var interval = setInterval(() => {
-                setValue(Number((copyValue + randomNumber).toFixed(3)));
-                setTime(time+2)
+                const newValue=Number((copyValue + randomNumber).toFixed(3))
+                const newTime=time+2
+                setValue(newValue);
+                setTime(newTime)
                 // setChartdata(currentData=>[...currentData,Number((copyValue + randomNumber).toFixed(3))])
                 let data = {
-                    time: time,
-                    [name]: value
+                    time: newTime,
+                    [name]: newValue
                 }
                 // const obj = statistics.find(el=>el.time === time)
                 // const newObj = obj? {...obj,[name]:value}:{time:time, [name]:value}
@@ -43,11 +45,21 @@ const OneFiled = ({ filed, setStatistics, statistics }) => {
 
     }, [value, toggle])
 
+    // useEffect(()=>{
+    //     console.log(statistics,time,elementStatistics,'ispisi')
+    //     setStatistics({...statistics, [time]: {...statistics[time],...elementStatistics }})
+
+    // },[])
+
     useEffect(()=>{
         console.log(statistics,2)
-        setStatistics({...statistics, [time]: {...statistics[time], ...elementStatistics}})
+        setStatistics({...statistics, [time]: {...statistics[time],...elementStatistics }})
 
     },[elementStatistics])
+
+ 
+
+    
 
 
     const handleChange = () => {
@@ -62,13 +74,13 @@ const OneFiled = ({ filed, setStatistics, statistics }) => {
                 <div><h4 className='cardName'>{name}</h4></div>
                 <div className='threePartDiv'>
                     <div>
-                        {value >= 3 ? <img className='arrow' src='./arrowUp.png' alt='arrow' /> : <img className='arrow' src='./arrowDown.png' alt='arrow' />}
+                        {value >= 3 ? <img className='arrow' src='./arrowUp.png' alt='arrow' /> : null} 
                     </div>
                     <div>
                         <h4 className='cardValue'>{value}</h4>
                     </div>
                     <div>
-
+                    {value< 3 ? <img className='arrow' src='./arrowDown.png' alt='arrow' /> : null }
                     </div>
                 </div>
             </div>
