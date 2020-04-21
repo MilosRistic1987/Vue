@@ -6,67 +6,43 @@ const OneFiled = ({ filed, setStatistics, statistics }) => {
     let { name } = filed
     const [time, setTime] = useState(0)
     const [value, setValue] = useState(3);
-    // const[chartdata,setChartdata]=useState([3])
     const [toggle, setToggle] = useState(true)
     let copyValue = 3
     var operator = [1, -1];
     var randomIndex = Math.round(Math.random())
     let randomNumber = Number((Math.random() * 1 + 1) * operator[randomIndex]);
-    const [elementStatistics, setElementStat]= useState({time:time, [name]:value})
-    // console.log(chartdata, 'pera');
-
-
-
-
+    const [elementStatistics, setElementStat] = useState({ time: time, [name]: value })
 
 
     useEffect(() => {
         if (toggle) {
             var interval = setInterval(() => {
-                const newValue=Number((copyValue + randomNumber).toFixed(3))
-                const newTime=time+2
+                const newValue = Number((copyValue + randomNumber).toFixed(3))
+                const newTime = time + 2
                 setValue(newValue);
                 setTime(newTime)
-                // setChartdata(currentData=>[...currentData,Number((copyValue + randomNumber).toFixed(3))])
                 let data = {
                     time: newTime,
                     [name]: newValue
                 }
-                // const obj = statistics.find(el=>el.time === time)
-                // const newObj = obj? {...obj,[name]:value}:{time:time, [name]:value}
                 setElementStat(data)
-              
             }, 2000);
             return () => clearInterval(interval);
         } else {
             clearInterval(interval)
-
         }
-
     }, [value, toggle])
 
-    // useEffect(()=>{
-    //     console.log(statistics,time,elementStatistics,'ispisi')
-    //     setStatistics({...statistics, [time]: {...statistics[time],...elementStatistics }})
 
-    // },[])
+    useEffect(() => {
+        console.log(statistics, 2)
+        setStatistics({ ...statistics, [time]: { ...statistics[time], ...elementStatistics } })
 
-    useEffect(()=>{
-        console.log(statistics,2)
-        setStatistics({...statistics, [time]: {...statistics[time],...elementStatistics }})
-
-    },[elementStatistics])
-
- 
-
-    
-
+    }, [elementStatistics])
 
     const handleChange = () => {
         setToggle(!toggle)
     }
-
-
 
     return (
         <div className='divCapsula'>
@@ -74,13 +50,13 @@ const OneFiled = ({ filed, setStatistics, statistics }) => {
                 <div><h4 className='cardName'>{name}</h4></div>
                 <div className='threePartDiv'>
                     <div>
-                        {value >= 3 ? <img className='arrow' src='./arrowUp.png' alt='arrow' /> : null} 
+                        {value >= 3 ? <img className='arrow' src='./arrowUp.png' alt='arrow' /> : null}
                     </div>
                     <div>
                         <h4 className='cardValue'>{value}</h4>
                     </div>
                     <div>
-                    {value< 3 ? <img className='arrow' src='./arrowDown.png' alt='arrow' /> : null }
+                        {value < 3 ? <img className='arrow' src='./arrowDown.png' alt='arrow' /> : null}
                     </div>
                 </div>
             </div>
